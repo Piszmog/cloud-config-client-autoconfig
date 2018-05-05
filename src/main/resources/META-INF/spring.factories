@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  io.github.piszmog.cloudconfigclient.autoconfig.template.OAuth2ConfigTemplateAutoConfiguration,\
+  io.github.piszmog.cloudconfigclient.autoconfig.template.LocalConfigTemplateAutoConfiguration,\
+  io.github.piszmog.cloudconfigclient.autoconfig.client.ConfigClientAutoConfiguration
