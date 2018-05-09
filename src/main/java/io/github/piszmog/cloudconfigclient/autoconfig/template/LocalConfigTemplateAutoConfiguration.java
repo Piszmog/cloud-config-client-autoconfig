@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConditionalOnBean( ConfigClientProperties.class )
+@ConditionalOnMissingBean( type = "org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails" )
 @ConditionalOnMissingClass( "org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails" )
 public class LocalConfigTemplateAutoConfiguration
 {
