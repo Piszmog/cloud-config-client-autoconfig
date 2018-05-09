@@ -1,13 +1,11 @@
 package io.github.piszmog.cloudconfigclient.autoconfig.client;
 
-import io.github.piszmog.cloudconfig.client.ConfigClient;
 import io.github.piszmog.cloudconfig.client.impl.DecryptConfigClient;
 import io.github.piszmog.cloudconfig.client.impl.EncryptConfigClient;
 import io.github.piszmog.cloudconfig.client.impl.FileConfigClient;
 import io.github.piszmog.cloudconfig.client.impl.PublicKeyClient;
 import io.github.piszmog.cloudconfig.template.ConfigTemplate;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,8 +15,6 @@ import org.springframework.context.annotation.Configuration;
  * Created by Piszmog on 5/5/2018
  */
 @Configuration
-@ConditionalOnClass( ConfigClient.class )
-@ConditionalOnBean( ConfigTemplate.class )
 public class ConfigClientAutoConfiguration
 {
     // ============================================================
@@ -32,6 +28,7 @@ public class ConfigClientAutoConfiguration
      * @return The decryption client.
      */
     @Bean
+    @ConditionalOnProperty( prefix = "cloud.config.client", name = "decrypt.enabled", matchIfMissing = true )
     public DecryptConfigClient decryptConfigClient( final ConfigTemplate configTemplate )
     {
         return new DecryptConfigClient( configTemplate );
@@ -44,6 +41,7 @@ public class ConfigClientAutoConfiguration
      * @return The encryption client.
      */
     @Bean
+    @ConditionalOnProperty( prefix = "cloud.config.client", name = "encrypt.enabled", matchIfMissing = true )
     public EncryptConfigClient encryptConfigClient( final ConfigTemplate configTemplate )
     {
         return new EncryptConfigClient( configTemplate );
@@ -56,6 +54,7 @@ public class ConfigClientAutoConfiguration
      * @return The file client.
      */
     @Bean
+    @ConditionalOnProperty( prefix = "cloud.config.client", name = "file.enabled", matchIfMissing = true )
     public FileConfigClient fileConfigClient( final ConfigTemplate configTemplate )
     {
         return new FileConfigClient( configTemplate );
@@ -68,6 +67,7 @@ public class ConfigClientAutoConfiguration
      * @return The public key client.
      */
     @Bean
+    @ConditionalOnProperty( prefix = "cloud.config.client", name = "publickey.enabled", matchIfMissing = true )
     public PublicKeyClient publicKeyClient( final ConfigTemplate configTemplate )
     {
         return new PublicKeyClient( configTemplate );
