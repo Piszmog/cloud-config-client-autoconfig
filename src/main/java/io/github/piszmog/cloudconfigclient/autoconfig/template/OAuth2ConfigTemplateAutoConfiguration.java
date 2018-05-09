@@ -16,7 +16,7 @@ import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResour
  * Created by Piszmog on 5/5/2018
  */
 @Configuration
-@ConditionalOnClass( { ConfigTemplate.class, OAuth2ProtectedResourceDetails.class } )
+@ConditionalOnClass( { OAuth2ProtectedResourceDetails.class } )
 @ConditionalOnBean( ConfigClientProperties.class )
 public class OAuth2ConfigTemplateAutoConfiguration
 {

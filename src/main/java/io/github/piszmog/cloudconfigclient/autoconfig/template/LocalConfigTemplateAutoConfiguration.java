@@ -3,7 +3,6 @@ package io.github.piszmog.cloudconfigclient.autoconfig.template;
 import io.github.piszmog.cloudconfig.template.ConfigTemplate;
 import io.github.piszmog.cloudconfig.template.impl.LocalConfigTemplate;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingClass;
 import org.springframework.cloud.config.client.ConfigClientProperties;
@@ -16,7 +15,6 @@ import org.springframework.context.annotation.Configuration;
  * Created by Piszmog on 5/5/2018
  */
 @Configuration
-@ConditionalOnClass( ConfigTemplate.class )
 @ConditionalOnBean( ConfigClientProperties.class )
 @ConditionalOnMissingClass( "org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails" )
 public class LocalConfigTemplateAutoConfiguration

@@ -38,7 +38,7 @@
         <spring-cloud-services-dependencies.version>1.5.0.RELEASE</spring-cloud-services-dependencies.version>
         <spring-boot-dependencies.version>1.5.12.RELEASE</spring-boot-dependencies.version>
         <!--Dependency-->
-        <cloud-config-client.version>1.0-SNAPSHOT</cloud-config-client.version>
+        <cloud-config-client.version>1.0</cloud-config-client.version>
     </properties>
 
     <!--====================================-->
@@ -50,17 +50,11 @@
             <groupId>io.github.piszmog</groupId>
             <artifactId>cloud-config-client</artifactId>
             <version>${cloud-config-client.version}</version>
-            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>io.pivotal.spring.cloud</groupId>
             <artifactId>spring-cloud-services-starter-config-client</artifactId>
             <scope>provided</scope>
-        </dependency>
-        <!--Tests-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-test-autoconfigure</artifactId>
         </dependency>
     </dependencies>
 
