@@ -1,6 +1,7 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  io.github.piszmog.cloudconfigclient.autoconfig.client.ConfigClientAutoConfiguration
 org.springframework.cloud.bootstrap.BootstrapConfiguration=\
-  io.github.piszmog.cloudconfigclient.autoconfig.env.ApplicationJsonConfig,\
-  io.github.piszmog.cloudconfigclient.autoconfig.env.ApplicationResourceInitializer,\
-  io.github.piszmog.cloudconfigclient.autoconfig.client.ConfigClientAutoConfiguration,\
+  io.github.piszmog.cloudconfigclient.autoconfig.env.ResourceConfig,\
+  io.github.piszmog.cloudconfigclient.autoconfig.env.ConfigResourceInitializer,\
   io.github.piszmog.cloudconfigclient.autoconfig.template.OAuth2ConfigTemplateAutoConfiguration,\
   io.github.piszmog.cloudconfigclient.autoconfig.template.LocalConfigTemplateAutoConfiguration
