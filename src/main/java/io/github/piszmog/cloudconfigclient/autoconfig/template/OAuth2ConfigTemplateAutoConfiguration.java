@@ -2,9 +2,9 @@ package io.github.piszmog.cloudconfigclient.autoconfig.template;
 
 import io.github.piszmog.cloudconfig.template.ConfigTemplate;
 import io.github.piszmog.cloudconfig.template.impl.OAuth2ConfigTemplate;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cloud.config.client.ConfigClientProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResour
  */
 @Configuration
 @ConditionalOnClass( OAuth2ProtectedResourceDetails.class )
-@ConditionalOnBean( { ConfigClientProperties.class, OAuth2ProtectedResourceDetails.class } )
+@ConditionalOnProperty( value = "spring.cloud.config.client.oauth2.clientId" )
 public class OAuth2ConfigTemplateAutoConfiguration
 {
     // ============================================================

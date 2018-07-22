@@ -2,22 +2,19 @@ package io.github.piszmog.cloudconfigclient.autoconfig.env;
 
 import io.github.piszmog.cloudconfig.client.impl.FileConfigClient;
 import io.github.piszmog.cloudconfig.template.ConfigTemplate;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.cloud.config.client.ConfigServicePropertySourceLocator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
  * Configuration for creating configuration resource beans.
  * <p>
- * Created via {@link javax.validation.BootstrapConfiguration} so property sources can be loaded before Spring
- * configuration properties are set up.
+ * Created via {@link org.springframework.cloud.bootstrap.BootstrapConfiguration} so property sources can be loaded
+ * before Spring configuration properties are set up.
  * <p>
  * Created by Piszmog on 7/21/2018
  */
 @Configuration
-@ConditionalOnBean( ConfigServicePropertySourceLocator.class )
 public class ResourceConfig
 {
     /**
