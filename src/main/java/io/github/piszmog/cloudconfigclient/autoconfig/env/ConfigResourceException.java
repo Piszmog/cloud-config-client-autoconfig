@@ -1,59 +1,59 @@
 package io.github.piszmog.cloudconfigclient.autoconfig.env;
 
 /**
- * Exception thrown when an error occurs when operating on the config server.
+ * Exception thrown when an error occurs when loading configuration resource files.
  * <p>
  * Created by Piszmog on 5/5/2018
  */
-public class ApplicationJsonException extends RuntimeException
+public class ConfigResourceException extends RuntimeException
 {
     /**
-     * Creates a new config exception.
+     * Creates a new configuration resource exception.
      */
-    public ApplicationJsonException()
+    public ConfigResourceException()
     {
     }
 
     /**
-     * Creates a new config exception.
+     * Creates a new configuration resource exception.
      *
      * @param message the message associated with the exception
      */
-    public ApplicationJsonException( final String message )
+    public ConfigResourceException( final String message )
     {
         super( message );
     }
 
     /**
-     * Creates a new config exception.
+     * Creates a new configuration resource exception.
      *
      * @param message the message associated with the exception
      * @param cause   the cause of th exception
      */
-    public ApplicationJsonException( final String message, final Throwable cause )
+    public ConfigResourceException( final String message, final Throwable cause )
     {
         super( message, cause );
     }
 
     /**
-     * Creates a new config exception.
+     * Creates a new configuration resource exception.
      *
      * @param cause the cause of th exception
      */
-    public ApplicationJsonException( final Throwable cause )
+    public ConfigResourceException( final Throwable cause )
     {
         super( cause );
     }
 
     /**
-     * Creates a new config exception.
+     * Creates a new configuration resource exception.
      *
      * @param message            the message associated with the exception
      * @param cause              the cause of th exception
      * @param enableSuppression  determines if suppression is enabled
      * @param writableStackTrace determines if the stack is writeable
      */
-    public ApplicationJsonException( final String message, final Throwable cause, final boolean enableSuppression, final boolean writableStackTrace )
+    public ConfigResourceException( final String message, final Throwable cause, final boolean enableSuppression, final boolean writableStackTrace )
     {
         super( message, cause, enableSuppression, writableStackTrace );
     }
