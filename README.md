@@ -49,7 +49,7 @@ cloud:
 
 If pulling from the default branch, files __must__ be located in a subdirectory.
 
-## Adding JSON Files are Property Sources
+## Adding JSON Files as Property Sources
 The Config Server Client will only pull down `.properties` and `.yml`/`.yaml` files for an application's configuration (property sources). As 
 more microservices move to _code by configuration_, these files can get very large and hard to maintain. Splitting configurations 
 out into JSON files that do not need to follow the Config Server's [naming convention](https://cloud.spring.io/spring-cloud-static/spring-cloud-config/1.3.1.RELEASE/#_quick_start) 
