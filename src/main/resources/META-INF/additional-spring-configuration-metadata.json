@@ -1,0 +1,39 @@
+{
+  "groups": [],
+  "properties": [
+    {
+      "name": "cloud.config.resource.files",
+      "description": "The list of resources to load in addition to the application configurations.",
+      "type": "io.github.piszmog.cloudconfigclient.autoconfig.env.model.ApplicationFile"
+    },
+    {
+      "name": "cloud.config.resource.enabled",
+      "description": "Determines if the application should lod the specified files.",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "name": "cloud.config.client.decrypt.enabled",
+      "defaultValue": true,
+      "description": "Determines if the decrypt client bean should be created.",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "name": "cloud.config.client.encrypt.enabled",
+      "defaultValue": true,
+      "description": "Determines if the encrypt client bean should be created.",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "name": "cloud.config.client.file.enabled",
+      "defaultValue": true,
+      "description": "Determines if the file client bean should be created.",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "name": "cloud.config.client.publickey.enabled",
+      "defaultValue": true,
+      "description": "Determines if the publickey client bean should be created..",
+      "type": "java.lang.Boolean"
+    }
+  ]
+}
