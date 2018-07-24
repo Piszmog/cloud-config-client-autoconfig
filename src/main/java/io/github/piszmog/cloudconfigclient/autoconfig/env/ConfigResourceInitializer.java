@@ -72,10 +72,13 @@ public class ConfigResourceInitializer implements ApplicationContextInitializer<
                     {
                         throw new ConfigResourceException( "Directory must not be null or blank when file is not blank or null." );
                     }
-                    if ( !StringUtils.endsWithIgnoreCase( fileName, ".json" ) )
+                    if ( !StringUtils.endsWithIgnoreCase( fileName, ".json" )
+                            && !StringUtils.endsWithIgnoreCase( fileName, ".yml" )
+                            && !StringUtils.endsWithIgnoreCase( fileName, ".yaml" )
+                            && !StringUtils.endsWithIgnoreCase( fileName, ".properties" ) )
                     {
                         throw new ConfigResourceException( "File " + fileName + " is not a configuration file." +
-                                " Only .json are accepted." );
+                                " Only .json, .yml, .yaml, and .properties are accepted." );
                     }
                     files.add( fileName );
                 }
