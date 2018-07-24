@@ -20,7 +20,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
- * JSON property source locator. Locates the JSON files to be loaded as property sources.
+ * Property source locator. Locates the JSON files to be loaded as property sources.
  * <p>
  * Created by Piszmog on 7/21/2018
  */
