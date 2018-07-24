@@ -58,7 +58,7 @@ can help to better organize an application configuration.
 Leveraging the `FileConfigClient` bean, JSON files can be loaded as property sources. This allows for `ConfigurationProperties` 
 to have JSON values be injected into their fields.
 
-To add a JSON file as a property source, update the application configuration to have the following,
+To add a file as a property source, update the application configuration to have the following,
 ```yaml
 cloud:
   config:
@@ -81,7 +81,7 @@ cloud:
 Where,
 - `<sub-directory path>` is the directory path to the following files -- example `nonprod/example` or `configs`
   - Sub-directory __must__ not be `null` or blank.
-- `<file>` is the JSON file to load that is located in the specified sub-directory
+- `<file>` is the JSON, YAML, or Properties file to load that is located in the specified sub-directory
 
 ### Specifying Configuration
 Adding JSON files to be property sources can either be done in the `bootstrap.yml` (embedded with the application), in an embedded 

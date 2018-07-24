@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * If enabled and a list of resources to load exist, then the configuration resources are added as property sources.
  * <p>
- * Only configuration file formats are accepted - .json
+ * Only configuration file formats are accepted - .json, .yaml/.yml, and .properties
  * <p>
  * Only loads the configuration files if {@code cloud.config.client.file.enabled} is true or missing and {@link
  * ConfigPropertySourceLocator} bean was injected.
@@ -72,10 +72,13 @@ public class ConfigResourceInitializer implements ApplicationContextInitializer<
                     {
                         throw new ConfigResourceException( "Directory must not be null or blank when file is not blank or null." );
                     }
-                    if ( !StringUtils.endsWithIgnoreCase( fileName, ".json" ) )
+                    if ( !StringUtils.endsWithIgnoreCase( fileName, ".json" )
+                            && !StringUtils.endsWithIgnoreCase( fileName, ".yml" )
+                            && !StringUtils.endsWithIgnoreCase( fileName, ".yaml" )
+                            && !StringUtils.endsWithIgnoreCase( fileName, ".properties" ) )
                     {
                         throw new ConfigResourceException( "File " + fileName + " is not a configuration file." +
-                                " Only .json are accepted." );
+                                " Only .json, .yml, .yaml, and .properties are accepted." );
                     }
                     files.add( fileName );
                 }
