@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * If enabled and a list of resources to load exist, then the configuration resources are added as property sources.
  * <p>
- * Only configuration file formats are accepted - .json
+ * Only configuration file formats are accepted - .json, .yaml/.yml, and .properties
  * <p>
  * Only loads the configuration files if {@code cloud.config.client.file.enabled} is true or missing and {@link
  * ConfigPropertySourceLocator} bean was injected.
