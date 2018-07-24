@@ -94,8 +94,8 @@ class ConfigResourceInitializerSpec extends Specification
         when: "the initializer is ran"
         initializer.initialize( configurableApplicationContext )
 
-        then: "yml files are not allowed to be added"
-        thrown( ConfigResourceException )
+        then: "yml files are allowed to be added"
+        notThrown( ConfigResourceException )
     }
 
     def "configuration initializer adds yaml"()
@@ -127,8 +127,8 @@ class ConfigResourceInitializerSpec extends Specification
         when: "the initializer is ran"
         initializer.initialize( configurableApplicationContext )
 
-        then: "yaml files are not allowed to be added"
-        thrown( ConfigResourceException )
+        then: "yaml files are allowed to be added"
+        notThrown( ConfigResourceException )
     }
 
     def "configuration initializer adds properties"()
@@ -160,8 +160,8 @@ class ConfigResourceInitializerSpec extends Specification
         when: "the initializer is ran"
         initializer.initialize( configurableApplicationContext )
 
-        then: "properties files are not allowed to be added"
-        thrown( ConfigResourceException )
+        then: "properties files are allowed to be added"
+        notThrown( ConfigResourceException )
     }
 
     def "configuration initializer is provided a text file to add"()
