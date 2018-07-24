@@ -1,9 +1,23 @@
-# Config Server Commons
+# Cloud Config Client AutoConfig
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.piszmog/cloud-config-client-autoconfig/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/io.github.piszmog/cloud-config-client-autoconfig)
 
 ## Description
 Spring Auto-configuration library for [Cloud Config Client](https://github.com/Piszmog/cloud-config-client).
+
+__Cloud Config Client AutoConfig 2.x__ is compatible with
+
+| Dependency | Version |
+| :---: | :---: |
+| Spring Boot | 2.x.x |
+| Spring Cloud Services | 2.x.x.RELEASE |
+
+__Cloud Config Client AutoConfig 1.x__ is compatible with
+
+| Dependency | Version |
+| :---: | :---: |
+| Spring Boot | 1.5.x |
+| Spring Cloud Services | 1.5.x.RELEASE |
 
 Creates Spring Beans for `DecryptConfigClient`, `EncryptConfigClient`, `FileConfigClient`, and `PublicKeyClient`. Simply
 inject the beans where needed.

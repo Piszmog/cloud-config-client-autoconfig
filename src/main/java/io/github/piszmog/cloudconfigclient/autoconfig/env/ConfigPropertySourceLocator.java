@@ -6,8 +6,9 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import io.github.piszmog.cloudconfig.ConfigException;
 import io.github.piszmog.cloudconfig.client.impl.FileConfigClient;
 import io.github.piszmog.cloudconfigclient.autoconfig.env.model.Resource;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.core.env.CompositePropertySource;
 import org.springframework.core.env.MapPropertySource;
 import org.springframework.core.env.PropertySource;
@@ -24,9 +25,10 @@ import java.util.concurrent.Future;
  * <p>
  * Created by Piszmog on 7/21/2018
  */
-@Slf4j
 public class ConfigPropertySourceLocator
 {
+    private static final transient Log logger = LogFactory.getLog( ConfigPropertySourceLocator.class );
+
     // ============================================================
     // Class Constants:
     // ============================================================
@@ -112,7 +114,7 @@ public class ConfigPropertySourceLocator
         final String filePath = getFilePath( directoryPath, fileName );
         try
         {
-            log.info( "Loading configuration {}...", filePath );
+            logger.info( "Loading configuration " + filePath + "..." );
             Map file;
             if ( StringUtils.endsWithIgnoreCase( fileName, ".yml" ) || StringUtils.endsWithIgnoreCase( fileName, ".yaml" ) )
             {
