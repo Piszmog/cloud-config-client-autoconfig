@@ -4,20 +4,16 @@ import io.github.piszmog.cloudconfig.template.ConfigTemplate;
 import io.github.piszmog.cloudconfig.template.impl.LocalConfigTemplate;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.cloud.config.client.ConfigClientProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 
 /**
  * Auto-configuration for creating a {@link LocalConfigTemplate}.
  * <p>
  * Created by Piszmog on 5/5/2018
  */
-@Order
 @Configuration
 @ConditionalOnBean( ConfigClientProperties.class )
 @ConditionalOnProperty( value = "spring.cloud.config.client.oauth2.clientId", matchIfMissing = true )

@@ -5,7 +5,6 @@ import io.github.piszmog.cloudconfig.template.ConfigTemplate;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 
 /**
  * Configuration for creating configuration resource beans.
@@ -15,7 +14,6 @@ import org.springframework.core.annotation.Order;
  * <p>
  * Created by Piszmog on 7/21/2018
  */
-@Order
 @Configuration
 public class ResourceConfig
 {
