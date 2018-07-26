@@ -11,6 +11,7 @@ import org.springframework.cloud.config.client.ConfigServiceBootstrapConfigurati
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 
 /**
@@ -18,11 +19,12 @@ import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResour
  * <p>
  * Created by Piszmog on 5/5/2018
  */
+@Order
 @Configuration
 @ConditionalOnClass( OAuth2ProtectedResourceDetails.class )
-@ConditionalOnProperty( value = "spring.cloud.config.client.oauth2.clientId" )
+@ConditionalOnProperty( value = "spring.cloud.config.client.oauth2.client-id" )
 @Import( { ConfigServiceBootstrapConfiguration.class, ConfigClientOAuth2BootstrapConfiguration.class } )
-public class OAuth2ConfigTemplateAutoConfiguration
+public class OAuth2ConfigTemplateBootStrapConfiguration
 {
     // ============================================================
     // Beans:
@@ -35,6 +37,7 @@ public class OAuth2ConfigTemplateAutoConfiguration
      * @param oAuth2ProtectedResourceDetails the OAuth2 details
      * @return The config template.
      */
+    @Order
     @Bean
     @ConditionalOnMissingBean
     public ConfigTemplate oauth2ConfigTemplate( final ConfigClientProperties configClientProperties,

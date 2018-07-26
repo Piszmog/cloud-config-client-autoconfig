@@ -9,7 +9,7 @@ import spock.lang.Specification
 /**
  * Created by Piszmog on 7/22/2018
  */
-class ConfigResourceInitializerSpec extends Specification
+class ConfigResourceBootstrapInitializerSpec extends Specification
 {
     // ============================================================
     // Class Attributes:
@@ -35,7 +35,7 @@ class ConfigResourceInitializerSpec extends Specification
     def "configuration initializer adds json"()
     {
         given: "A configuration initializer"
-        def initializer = new ConfigResourceInitializer()
+        def initializer = new ConfigResourceBootstrapInitializer()
 
         and: "the locator is set"
         initializer.setConfigPropertySourceLocator( configPropertySourceLocator )
@@ -68,7 +68,7 @@ class ConfigResourceInitializerSpec extends Specification
     def "configuration initializer adds yml"()
     {
         given: "A configuration initializer"
-        def initializer = new ConfigResourceInitializer()
+        def initializer = new ConfigResourceBootstrapInitializer()
 
         and: "the locator is set"
         initializer.setConfigPropertySourceLocator( configPropertySourceLocator )
@@ -101,7 +101,7 @@ class ConfigResourceInitializerSpec extends Specification
     def "configuration initializer adds yaml"()
     {
         given: "A configuration initializer"
-        def initializer = new ConfigResourceInitializer()
+        def initializer = new ConfigResourceBootstrapInitializer()
 
         and: "the locator is set"
         initializer.setConfigPropertySourceLocator( configPropertySourceLocator )
@@ -134,7 +134,7 @@ class ConfigResourceInitializerSpec extends Specification
     def "configuration initializer adds properties"()
     {
         given: "A configuration initializer"
-        def initializer = new ConfigResourceInitializer()
+        def initializer = new ConfigResourceBootstrapInitializer()
 
         and: "the locator is set"
         initializer.setConfigPropertySourceLocator( configPropertySourceLocator )
@@ -167,7 +167,7 @@ class ConfigResourceInitializerSpec extends Specification
     def "configuration initializer is provided a text file to add"()
     {
         given: "A configuration initializer"
-        def initializer = new ConfigResourceInitializer()
+        def initializer = new ConfigResourceBootstrapInitializer()
 
         and: "the locator is set"
         initializer.setConfigPropertySourceLocator( configPropertySourceLocator )
@@ -197,7 +197,7 @@ class ConfigResourceInitializerSpec extends Specification
     def "configuration initializer has a directory as blank"()
     {
         given: "A configuration initializer"
-        def initializer = new ConfigResourceInitializer()
+        def initializer = new ConfigResourceBootstrapInitializer()
 
         and: "the locator is set"
         initializer.setConfigPropertySourceLocator( configPropertySourceLocator )
@@ -227,7 +227,7 @@ class ConfigResourceInitializerSpec extends Specification
     def "configuration initializer has a directory as null"()
     {
         given: "A configuration initializer"
-        def initializer = new ConfigResourceInitializer()
+        def initializer = new ConfigResourceBootstrapInitializer()
 
         and: "the locator is set"
         initializer.setConfigPropertySourceLocator( configPropertySourceLocator )
@@ -257,7 +257,7 @@ class ConfigResourceInitializerSpec extends Specification
     def "configuration initializer adds many json files"()
     {
         given: "A configuration initializer"
-        def initializer = new ConfigResourceInitializer()
+        def initializer = new ConfigResourceBootstrapInitializer()
 
         and: "the locator is set"
         initializer.setConfigPropertySourceLocator( configPropertySourceLocator )
@@ -292,7 +292,7 @@ class ConfigResourceInitializerSpec extends Specification
     def "configuration initializer adds many json files in many directories"()
     {
         given: "A configuration initializer"
-        def initializer = new ConfigResourceInitializer()
+        def initializer = new ConfigResourceBootstrapInitializer()
 
         and: "the locator is set"
         initializer.setConfigPropertySourceLocator( configPropertySourceLocator )

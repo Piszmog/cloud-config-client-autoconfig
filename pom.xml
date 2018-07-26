@@ -38,7 +38,7 @@
         <spring-cloud-services-dependencies.version>2.0.1.RELEASE</spring-cloud-services-dependencies.version>
         <spring-boot-dependencies.version>2.0.3.RELEASE</spring-boot-dependencies.version>
         <!--Dependency-->
-        <cloud-config-client.version>2.0</cloud-config-client.version>
+        <cloud-config-client.version>2.2</cloud-config-client.version>
         <jackson-dataformat.version>2.9.6</jackson-dataformat.version>
         <spring-context.version>5.0.7.RELEASE</spring-context.version>
         <spring-security-oauth2.version>2.3.3.RELEASE</spring-security-oauth2.version>
