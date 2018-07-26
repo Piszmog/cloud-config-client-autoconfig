@@ -6,6 +6,7 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import io.github.piszmog.cloudconfig.ConfigException;
 import io.github.piszmog.cloudconfig.client.impl.FileConfigClient;
 import io.github.piszmog.cloudconfigclient.autoconfig.env.model.Resource;
+import io.github.piszmog.cloudconfigclient.autoconfig.env.support.MapFlattener;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -14,7 +15,9 @@ import org.springframework.core.env.MapPropertySource;
 import org.springframework.core.env.PropertySource;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -108,14 +111,14 @@ public class ConfigPropertySourceLocator
         }
     }
 
+    @SuppressWarnings( "unchecked" )
     private void loadConfigurationFile( final CompositePropertySource composite, final String directoryPath, final String fileName )
     {
-        final Map<String, Object> map = new HashMap<>();
         final String filePath = getFilePath( directoryPath, fileName );
+        Map file;
         try
         {
             logger.info( "Loading configuration " + filePath + "..." );
-            Map file;
             if ( StringUtils.endsWithIgnoreCase( fileName, ".yml" ) || StringUtils.endsWithIgnoreCase( fileName, ".yaml" ) )
             {
                 file = getYAMLFile( directoryPath, fileName, filePath );
@@ -128,15 +131,15 @@ public class ConfigPropertySourceLocator
             {
                 file = getJSONFile( directoryPath, fileName );
             }
-            loaadPropertyValues( map, filePath, file );
         }
         catch ( ConfigException e )
         {
             throw new ConfigResourceException( "Failed to load " + filePath, e );
         }
-        if ( !map.isEmpty() )
+        if ( !file.isEmpty() )
         {
-            composite.addPropertySource( new MapPropertySource( filePath, map ) );
+            final Map flattenMap = MapFlattener.flatten( file );
+            composite.addPropertySource( new MapPropertySource( filePath, flattenMap ) );
         }
     }
 
@@ -177,24 +180,5 @@ public class ConfigPropertySourceLocator
     private Map getJSONFile( final String directoryPath, final String fileName ) throws ConfigException
     {
         return fileConfigClient.getFileFromDefaultBranch( fileName, directoryPath, Map.class );
-    }
-
-    private void loaadPropertyValues( final Map<String, Object> map, final String filePath, final Map file )
-    {
-        final Properties properties;
-        try
-        {
-            properties = PROPERTIES_MAPPER.writeValueAsProperties( file );
-        }
-        catch ( IOException e )
-        {
-            throw new ConfigResourceException( "Failed to convert " + filePath + " to properties format to be loaded in the property sources.", e );
-        }
-        for ( Map.Entry<Object, Object> entry : properties.entrySet() )
-        {
-            final String key = (String) entry.getKey();
-            final Object value = entry.getValue();
-            map.put( key, value );
-        }
     }
 }

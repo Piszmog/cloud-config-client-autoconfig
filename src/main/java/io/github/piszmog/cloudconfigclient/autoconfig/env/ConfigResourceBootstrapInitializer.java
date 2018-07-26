@@ -28,7 +28,7 @@ import java.util.List;
  * Created by Piszmog on 7/21/2018
  */
 @Configuration
-public class ConfigResourceInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext>, Ordered
+public class ConfigResourceBootstrapInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext>, Ordered
 {
     // ============================================================
     // Class Constants:
