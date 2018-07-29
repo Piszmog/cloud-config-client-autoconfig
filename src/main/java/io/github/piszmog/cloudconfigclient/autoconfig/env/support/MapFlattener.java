@@ -45,11 +45,13 @@ public class MapFlattener
         map.forEach( ( key, value ) -> {
             String finalKey = key;
             //
-            // If key has certain character in it, we want to wrap key in '[' and ']'.
+            // If key has certain characters in it, we want to wrap key in '[' and ']'.
             //
             if ( StringUtils.contains( key, ":" )
                     || StringUtils.contains( key, "." )
-                    || StringUtils.contains( key, "*" ) )
+                    || StringUtils.contains( key, "*" )
+                    || StringUtils.startsWith( key, "$" )
+                    || StringUtils.startsWith( key, "#" ) )
             {
                 finalKey = "[" + key + "]";
             }
