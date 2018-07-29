@@ -9,7 +9,7 @@
 
     <groupId>io.github.piszmog</groupId>
     <artifactId>cloud-config-client-autoconfig</artifactId>
-    <version>2.2-SNAPSHOT</version>
+    <version>2.2</version>
     <packaging>jar</packaging>
 
     <!--====================================-->
