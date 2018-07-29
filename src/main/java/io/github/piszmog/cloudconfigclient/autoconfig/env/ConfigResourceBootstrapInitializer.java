@@ -9,10 +9,14 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.core.env.EnumerablePropertySource;
+import org.springframework.core.env.MutablePropertySources;
 import org.springframework.core.env.PropertySource;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
+import java.util.stream.StreamSupport;
 
 /**
  * If enabled and a list of resources to load exist, then the configuration resources are added as property sources.
