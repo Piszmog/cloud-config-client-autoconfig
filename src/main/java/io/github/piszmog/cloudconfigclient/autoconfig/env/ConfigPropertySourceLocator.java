@@ -168,6 +168,10 @@ public class ConfigPropertySourceLocator
     {
         final Map file;
         final byte[] yamlFile = fileConfigClient.getFileFromDefaultBranch( fileName, directoryPath, byte[].class );
+        if ( yamlFile == null )
+        {
+            throw new ConfigResourceException( "Failed to find file " + fileName + " from the Config Server. Ensure the file exists." );
+        }
         try
         {
             file = YAML_MAPPER.readValue( yamlFile, Map.class );
@@ -182,9 +186,14 @@ public class ConfigPropertySourceLocator
     private Map getPropertiesFile( final String directoryPath, final String fileName ) throws ConfigException
     {
         final Map file;
+        final byte[] propertiesFile = fileConfigClient.getFileFromDefaultBranch( fileName, directoryPath, byte[].class );
+        if ( propertiesFile == null )
+        {
+            throw new ConfigResourceException( "Failed to find file " + fileName + " from the Config Server. Ensure the file exists." );
+        }
         try
         {
-            file = PROPERTIES_MAPPER.readValue( fileConfigClient.getFileFromDefaultBranch( fileName, directoryPath, byte[].class ), Map.class );
+            file = PROPERTIES_MAPPER.readValue( propertiesFile, Map.class );
         }
         catch ( IOException e )
         {
@@ -195,6 +204,11 @@ public class ConfigPropertySourceLocator
 
     private Map getJSONFile( final String directoryPath, final String fileName ) throws ConfigException
     {
-        return fileConfigClient.getFileFromDefaultBranch( fileName, directoryPath, Map.class );
+        final Map jsonFile = fileConfigClient.getFileFromDefaultBranch( fileName, directoryPath, Map.class );
+        if ( jsonFile == null )
+        {
+            throw new ConfigResourceException( "Failed to find file " + fileName + " from the Config Server. Ensure the file exists." );
+        }
+        return jsonFile;
     }
 }
