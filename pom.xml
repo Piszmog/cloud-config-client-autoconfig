@@ -9,7 +9,7 @@
 
     <groupId>io.github.piszmog</groupId>
     <artifactId>cloud-config-client-autoconfig</artifactId>
-    <version>3.0-SNAPSHOT</version>
+    <version>3.0</version>
     <packaging>jar</packaging>
 
     <!--====================================-->
@@ -41,7 +41,7 @@
         <spring-cloud-services-dependencies.version>3.1.0.RELEASE</spring-cloud-services-dependencies.version>
         <spring-boot-dependencies.version>2.2.2.RELEASE</spring-boot-dependencies.version>
         <!--Dependency-->
-        <cloud-config-client.version>3.0-SNAPSHOT</cloud-config-client.version>
+        <cloud-config-client.version>3.0</cloud-config-client.version>
         <!--Tests-->
         <cglib.version>3.3.0</cglib.version>
         <groovy-all.version>2.5.8</groovy-all.version>
