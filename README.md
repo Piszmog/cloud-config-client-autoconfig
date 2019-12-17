@@ -5,11 +5,18 @@
 ## Description
 Spring Auto-configuration library for [Cloud Config Client](https://github.com/Piszmog/cloud-config-client).
 
+__Cloud Config Client AutoConfig 3.x__ is compatible with
+
+| Dependency | Version |
+| :---: | :---: |
+| Spring Boot | 2.2.x |
+| Spring Cloud Services | 3.x.x.RELEASE |
+
 __Cloud Config Client AutoConfig 2.x__ is compatible with
 
 | Dependency | Version |
 | :---: | :---: |
-| Spring Boot | 2.x.x |
+| Spring Boot | 2.1.x |
 | Spring Cloud Services | 2.x.x.RELEASE |
 
 __Cloud Config Client AutoConfig 1.x__ is compatible with

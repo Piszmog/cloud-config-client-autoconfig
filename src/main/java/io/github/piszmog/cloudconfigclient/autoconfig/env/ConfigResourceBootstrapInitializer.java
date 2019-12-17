@@ -32,8 +32,7 @@ import java.util.stream.StreamSupport;
  * Created by Piszmog on 7/21/2018
  */
 @Configuration
-public class ConfigResourceBootstrapInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext>, Ordered
-{
+public class ConfigResourceBootstrapInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext>, Ordered {
     // ============================================================
     // Class Constants:
     // ============================================================
@@ -53,59 +52,49 @@ public class ConfigResourceBootstrapInitializer implements ApplicationContextIni
     // ============================================================
 
     @Override
-    public void initialize( final ConfigurableApplicationContext applicationContext )
-    {
+    public void initialize(final ConfigurableApplicationContext applicationContext) {
         final ConfigurableEnvironment environment = applicationContext.getEnvironment();
-        final String isEnabled = environment.getProperty( PROPERTY_ENABLED );
-        if ( ( StringUtils.isBlank( isEnabled ) || BooleanUtils.toBoolean( isEnabled ) )
-                && configPropertySourceLocator != null )
-        {
+        final String isEnabled = environment.getProperty(PROPERTY_ENABLED);
+        if ((StringUtils.isBlank(isEnabled) || BooleanUtils.toBoolean(isEnabled))
+                && configPropertySourceLocator != null) {
             final List<Resource> resources = new ArrayList<>();
-            for ( int i = 0; i < MAX_SIZE; i++ )
-            {
+            for (int i = 0; i < MAX_SIZE; i++) {
                 final List<String> files = new ArrayList<>();
-                final String directory = environment.getProperty( PROPERTY_FILE + ".resources[" + i + "].directory" );
-                for ( int j = 0; j < MAX_SIZE; j++ )
-                {
-                    final String fileName = environment.getProperty( PROPERTY_FILE + ".resources[" + i + "].files[" + j + "]" );
-                    if ( StringUtils.isBlank( fileName ) )
-                    {
+                final String directory = environment.getProperty(PROPERTY_FILE + ".resources[" + i + "].directory");
+                for (int j = 0; j < MAX_SIZE; j++) {
+                    final String fileName = environment.getProperty(PROPERTY_FILE + ".resources[" + i + "].files[" + j + "]");
+                    if (StringUtils.isBlank(fileName)) {
                         break;
                     }
-                    if ( StringUtils.isBlank( directory ) && StringUtils.isNotBlank( fileName ) )
-                    {
-                        throw new ConfigResourceException( "Directory must not be null or blank when file is not blank or null." );
+                    if (StringUtils.isBlank(directory) && StringUtils.isNotBlank(fileName)) {
+                        throw new ConfigResourceException("Directory must not be null or blank when file is not blank or null.");
                     }
-                    if ( !StringUtils.endsWithIgnoreCase( fileName, ".json" )
-                            && !StringUtils.endsWithIgnoreCase( fileName, ".yml" )
-                            && !StringUtils.endsWithIgnoreCase( fileName, ".yaml" )
-                            && !StringUtils.endsWithIgnoreCase( fileName, ".properties" ) )
-                    {
-                        throw new ConfigResourceException( "File " + fileName + " is not a configuration file." +
-                                " Only .json, .yml, .yaml, and .properties are accepted." );
+                    if (!StringUtils.endsWithIgnoreCase(fileName, ".json")
+                            && !StringUtils.endsWithIgnoreCase(fileName, ".yml")
+                            && !StringUtils.endsWithIgnoreCase(fileName, ".yaml")
+                            && !StringUtils.endsWithIgnoreCase(fileName, ".properties")) {
+                        throw new ConfigResourceException("File " + fileName + " is not a configuration file." +
+                                " Only .json, .yml, .yaml, and .properties are accepted.");
                     }
-                    files.add( fileName );
+                    files.add(fileName);
                 }
-                if ( StringUtils.isBlank( directory ) && files.isEmpty() )
-                {
+                if (StringUtils.isBlank(directory) && files.isEmpty()) {
                     break;
                 }
                 final Resource resource = new Resource();
-                resource.setDirectory( directory );
-                resource.setFiles( files );
-                resources.add( resource );
+                resource.setDirectory(directory);
+                resource.setFiles(files);
+                resources.add(resource);
             }
-            if ( !resources.isEmpty() )
-            {
-                final PropertySource<?> propertySource = configPropertySourceLocator.locateConfigResources( resources );
-                environment.getPropertySources().addFirst( propertySource );
+            if (!resources.isEmpty()) {
+                final PropertySource<?> propertySource = configPropertySourceLocator.locateConfigResources(resources);
+                environment.getPropertySources().addFirst(propertySource);
             }
         }
     }
 
     @Override
-    public int getOrder()
-    {
+    public int getOrder() {
         //
         // Want to let all other initializers go first. Potentially the config server needs to be loaded first
         // before we can load the files.
@@ -117,9 +106,8 @@ public class ConfigResourceBootstrapInitializer implements ApplicationContextIni
     // Public Methods:
     // ============================================================
 
-    @Autowired( required = false )
-    public void setConfigPropertySourceLocator( final ConfigPropertySourceLocator configPropertySourceLocator )
-    {
+    @Autowired(required = false)
+    public void setConfigPropertySourceLocator(final ConfigPropertySourceLocator configPropertySourceLocator) {
         this.configPropertySourceLocator = configPropertySourceLocator;
     }
 }

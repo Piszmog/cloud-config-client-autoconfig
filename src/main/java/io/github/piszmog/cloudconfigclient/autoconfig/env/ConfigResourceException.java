@@ -5,13 +5,11 @@ package io.github.piszmog.cloudconfigclient.autoconfig.env;
  * <p>
  * Created by Piszmog on 5/5/2018
  */
-public class ConfigResourceException extends RuntimeException
-{
+public class ConfigResourceException extends RuntimeException {
     /**
      * Creates a new configuration resource exception.
      */
-    public ConfigResourceException()
-    {
+    public ConfigResourceException() {
     }
 
     /**
@@ -19,9 +17,8 @@ public class ConfigResourceException extends RuntimeException
      *
      * @param message the message associated with the exception
      */
-    public ConfigResourceException( final String message )
-    {
-        super( message );
+    public ConfigResourceException(final String message) {
+        super(message);
     }
 
     /**
@@ -30,9 +27,8 @@ public class ConfigResourceException extends RuntimeException
      * @param message the message associated with the exception
      * @param cause   the cause of th exception
      */
-    public ConfigResourceException( final String message, final Throwable cause )
-    {
-        super( message, cause );
+    public ConfigResourceException(final String message, final Throwable cause) {
+        super(message, cause);
     }
 
     /**
@@ -40,9 +36,8 @@ public class ConfigResourceException extends RuntimeException
      *
      * @param cause the cause of th exception
      */
-    public ConfigResourceException( final Throwable cause )
-    {
-        super( cause );
+    public ConfigResourceException(final Throwable cause) {
+        super(cause);
     }
 
     /**
@@ -53,8 +48,7 @@ public class ConfigResourceException extends RuntimeException
      * @param enableSuppression  determines if suppression is enabled
      * @param writableStackTrace determines if the stack is writeable
      */
-    public ConfigResourceException( final String message, final Throwable cause, final boolean enableSuppression, final boolean writableStackTrace )
-    {
-        super( message, cause, enableSuppression, writableStackTrace );
+    public ConfigResourceException(final String message, final Throwable cause, final boolean enableSuppression, final boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
     }
 }

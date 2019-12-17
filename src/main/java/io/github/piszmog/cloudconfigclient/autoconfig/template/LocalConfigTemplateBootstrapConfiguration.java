@@ -18,10 +18,9 @@ import org.springframework.core.annotation.Order;
  */
 @Order
 @Configuration
-@ConditionalOnProperty( value = "spring.cloud.config.client.oauth2.client-id", matchIfMissing = true )
-@Import( ConfigServiceBootstrapConfiguration.class )
-public class LocalConfigTemplateBootstrapConfiguration
-{
+@ConditionalOnProperty(value = "spring.cloud.config.client.oauth2.client-id", matchIfMissing = true)
+@Import(ConfigServiceBootstrapConfiguration.class)
+public class LocalConfigTemplateBootstrapConfiguration {
     // ============================================================
     // Beans:
     // ============================================================
@@ -35,8 +34,7 @@ public class LocalConfigTemplateBootstrapConfiguration
     @Order
     @Bean
     @ConditionalOnMissingBean
-    public ConfigTemplate localConfigTemplate( final ConfigClientProperties configClientProperties )
-    {
-        return new LocalConfigTemplate( configClientProperties );
+    public ConfigTemplate localConfigTemplate(final ConfigClientProperties configClientProperties) {
+        return new LocalConfigTemplate(configClientProperties);
     }
 }

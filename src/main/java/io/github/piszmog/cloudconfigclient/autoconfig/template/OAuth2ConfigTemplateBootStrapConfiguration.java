@@ -2,7 +2,7 @@ package io.github.piszmog.cloudconfigclient.autoconfig.template;
 
 import io.github.piszmog.cloudconfig.template.ConfigTemplate;
 import io.github.piszmog.cloudconfig.template.impl.OAuth2ConfigTemplate;
-import io.pivotal.spring.cloud.service.config.ConfigClientOAuth2BootstrapConfiguration;
+import io.pivotal.spring.cloud.config.client.ConfigClientOAuth2Properties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.annotation.Order;
-import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 
 /**
  * Auto-configuration for creating a {@link OAuth2ConfigTemplate}.
@@ -21,11 +20,10 @@ import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResour
  */
 @Order
 @Configuration
-@ConditionalOnClass( OAuth2ProtectedResourceDetails.class )
-@ConditionalOnProperty( value = "spring.cloud.config.client.oauth2.client-id" )
-@Import( { ConfigServiceBootstrapConfiguration.class, ConfigClientOAuth2BootstrapConfiguration.class } )
-public class OAuth2ConfigTemplateBootStrapConfiguration
-{
+@ConditionalOnClass(ConfigClientOAuth2Properties.class)
+@ConditionalOnProperty(prefix = "spring.cloud.config.client.oauth2", name = {"client-id", "client-secret", "access-token-uri"})
+@Import({ConfigServiceBootstrapConfiguration.class, ConfigClientOAuth2Properties.class})
+public class OAuth2ConfigTemplateBootStrapConfiguration {
     // ============================================================
     // Beans:
     // ============================================================
@@ -33,16 +31,15 @@ public class OAuth2ConfigTemplateBootStrapConfiguration
     /**
      * Creates a config template using OAuth2 credentials to connect to the config server.
      *
-     * @param configClientProperties         the config client properties
-     * @param oAuth2ProtectedResourceDetails the OAuth2 details
+     * @param configClientProperties       the config client properties
+     * @param configClientOAuth2Properties the OAuth2 details
      * @return The config template.
      */
     @Order
     @Bean
     @ConditionalOnMissingBean
-    public ConfigTemplate oauth2ConfigTemplate( final ConfigClientProperties configClientProperties,
-                                                final OAuth2ProtectedResourceDetails oAuth2ProtectedResourceDetails )
-    {
-        return new OAuth2ConfigTemplate( configClientProperties, oAuth2ProtectedResourceDetails );
+    public ConfigTemplate oauth2ConfigTemplate(final ConfigClientProperties configClientProperties,
+                                               final ConfigClientOAuth2Properties configClientOAuth2Properties) {
+        return new OAuth2ConfigTemplate(configClientProperties, configClientOAuth2Properties);
     }
 }
