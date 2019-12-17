@@ -19,9 +19,8 @@ import org.springframework.context.annotation.Configuration;
  * Created by Piszmog on 5/5/2018
  */
 @Configuration
-@ConditionalOnBean( ConfigTemplate.class )
-public class ConfigClientAutoConfiguration
-{
+@ConditionalOnBean(ConfigTemplate.class)
+public class ConfigClientAutoConfiguration {
     // ============================================================
     // Beans:
     // ============================================================
@@ -33,10 +32,9 @@ public class ConfigClientAutoConfiguration
      * @return The decryption client.
      */
     @Bean
-    @ConditionalOnProperty( prefix = "cloud.config.client", name = "decrypt.enabled", matchIfMissing = true )
-    public DecryptConfigClient decryptConfigClient( final ConfigTemplate configTemplate )
-    {
-        return new DecryptConfigClient( configTemplate );
+    @ConditionalOnProperty(prefix = "cloud.config.client", name = "decrypt.enabled", matchIfMissing = true)
+    public DecryptConfigClient decryptConfigClient(final ConfigTemplate configTemplate) {
+        return new DecryptConfigClient(configTemplate);
     }
 
     /**
@@ -46,10 +44,9 @@ public class ConfigClientAutoConfiguration
      * @return The encryption client.
      */
     @Bean
-    @ConditionalOnProperty( prefix = "cloud.config.client", name = "encrypt.enabled", matchIfMissing = true )
-    public EncryptConfigClient encryptConfigClient( final ConfigTemplate configTemplate )
-    {
-        return new EncryptConfigClient( configTemplate );
+    @ConditionalOnProperty(prefix = "cloud.config.client", name = "encrypt.enabled", matchIfMissing = true)
+    public EncryptConfigClient encryptConfigClient(final ConfigTemplate configTemplate) {
+        return new EncryptConfigClient(configTemplate);
     }
 
     /**
@@ -59,9 +56,8 @@ public class ConfigClientAutoConfiguration
      * @return The public key client.
      */
     @Bean
-    @ConditionalOnProperty( prefix = "cloud.config.client", name = "publickey.enabled", matchIfMissing = true )
-    public PublicKeyClient publicKeyClient( final ConfigTemplate configTemplate )
-    {
-        return new PublicKeyClient( configTemplate );
+    @ConditionalOnProperty(prefix = "cloud.config.client", name = "publickey.enabled", matchIfMissing = true)
+    public PublicKeyClient publicKeyClient(final ConfigTemplate configTemplate) {
+        return new PublicKeyClient(configTemplate);
     }
 }

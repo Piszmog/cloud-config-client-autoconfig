@@ -20,10 +20,9 @@ import org.springframework.core.annotation.Order;
  */
 @Order
 @Configuration
-@ConditionalOnProperty( prefix = "cloud.config.client", name = "file.enabled", matchIfMissing = true )
-@Import( { LocalConfigTemplateBootstrapConfiguration.class, OAuth2ConfigTemplateBootStrapConfiguration.class } )
-public class ResourceBootstrapConfig
-{
+@ConditionalOnProperty(prefix = "cloud.config.client", name = "file.enabled", matchIfMissing = true)
+@Import({LocalConfigTemplateBootstrapConfiguration.class, OAuth2ConfigTemplateBootStrapConfiguration.class})
+public class ResourceBootstrapConfig {
     /**
      * Create a file client. To disable, the property {@code cloud.config.client.file.enabled} must be set via bootstrap
      * configuration.
@@ -33,9 +32,8 @@ public class ResourceBootstrapConfig
      */
     @Order
     @Bean
-    public FileConfigClient fileConfigClient( final ConfigTemplate configTemplate )
-    {
-        return new FileConfigClient( configTemplate );
+    public FileConfigClient fileConfigClient(final ConfigTemplate configTemplate) {
+        return new FileConfigClient(configTemplate);
     }
 
     /**
@@ -46,8 +44,7 @@ public class ResourceBootstrapConfig
      */
     @Order
     @Bean
-    public ConfigPropertySourceLocator configPropertySourceLocator( final FileConfigClient fileConfigClient )
-    {
-        return new ConfigPropertySourceLocator( fileConfigClient );
+    public ConfigPropertySourceLocator configPropertySourceLocator(final FileConfigClient fileConfigClient) {
+        return new ConfigPropertySourceLocator(fileConfigClient);
     }
 }
