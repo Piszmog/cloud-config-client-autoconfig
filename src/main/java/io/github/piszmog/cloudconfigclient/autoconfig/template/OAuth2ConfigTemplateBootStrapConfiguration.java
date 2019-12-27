@@ -22,7 +22,7 @@ import org.springframework.core.annotation.Order;
 @Configuration
 @ConditionalOnClass(ConfigClientOAuth2Properties.class)
 @ConditionalOnProperty(prefix = "spring.cloud.config.client.oauth2", name = {"client-id", "client-secret", "access-token-uri"})
-@Import({ConfigServiceBootstrapConfiguration.class, ConfigClientOAuth2Properties.class})
+@Import({ConfigServiceBootstrapConfiguration.class})
 public class OAuth2ConfigTemplateBootStrapConfiguration {
     // ============================================================
     // Beans:
