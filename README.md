@@ -9,7 +9,7 @@ __Cloud Config Client AutoConfig 3.x__ is compatible with
 
 | Dependency | Version |
 | :---: | :---: |
-| Spring Boot | 2.2.x |
+| Spring Boot | 2.2.x - 2.3.x |
 | Spring Cloud Services | 3.x.x.RELEASE |
 
 __Cloud Config Client AutoConfig 2.x__ is compatible with

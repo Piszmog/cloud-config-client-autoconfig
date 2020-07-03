@@ -38,10 +38,10 @@
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
         <!--Dependency Management-->
-        <spring-cloud-services-dependencies.version>3.1.0.RELEASE</spring-cloud-services-dependencies.version>
-        <spring-boot-dependencies.version>2.2.2.RELEASE</spring-boot-dependencies.version>
+        <spring-cloud-services-dependencies.version>3.1.2.RELEASE</spring-cloud-services-dependencies.version>
+        <spring-boot-dependencies.version>2.3.1.RELEASE</spring-boot-dependencies.version>
         <!--Dependency-->
-        <cloud-config-client.version>3.0</cloud-config-client.version>
+        <cloud-config-client.version>3.1</cloud-config-client.version>
         <!--Tests-->
         <cglib.version>3.3.0</cglib.version>
         <groovy-all.version>2.5.8</groovy-all.version>
