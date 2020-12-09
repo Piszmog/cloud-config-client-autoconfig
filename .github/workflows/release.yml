@@ -1,0 +1,21 @@
+name: Publish package to the Maven Central Repository
+on:
+  release:
+    types: [ created ]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Maven Central Repository
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Release Maven package
+        uses: samuelmeuli/action-maven-publish@v1
+        with:
+          maven_profiles: release
+          gpg_private_key: ${{ secrets.GPG_KEY }}
+          gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          nexus_username: ${{ secrets.OSSRH_USERNAME }}
+          nexus_password: ${{ secrets.OSSRH_TOKEN }}

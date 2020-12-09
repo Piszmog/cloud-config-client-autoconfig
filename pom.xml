@@ -9,7 +9,7 @@
 
     <groupId>io.github.piszmog</groupId>
     <artifactId>cloud-config-client-autoconfig</artifactId>
-    <version>3.2</version>
+    <version>3.2.1</version>
     <packaging>jar</packaging>
 
     <!--====================================-->
@@ -38,8 +38,8 @@
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
         <!--Dependency Management-->
-        <spring-cloud-services-dependencies.version>3.1.2.RELEASE</spring-cloud-services-dependencies.version>
-        <spring-boot-dependencies.version>2.3.1.RELEASE</spring-boot-dependencies.version>
+        <spring-cloud-services-dependencies.version>3.1.6.RELEASE</spring-cloud-services-dependencies.version>
+        <spring-boot-dependencies.version>2.3.5.RELEASE</spring-boot-dependencies.version>
         <!--Dependency-->
         <cloud-config-client.version>3.1</cloud-config-client.version>
         <!--Tests-->
@@ -234,6 +234,12 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                                <configuration>
+                                    <gpgArguments>
+                                        <arg>--pinentry-mode</arg>
+                                        <arg>loopback</arg>
+                                    </gpgArguments>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
