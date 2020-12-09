@@ -41,7 +41,7 @@
         <spring-cloud-services-dependencies.version>3.1.6.RELEASE</spring-cloud-services-dependencies.version>
         <spring-boot-dependencies.version>2.3.5.RELEASE</spring-boot-dependencies.version>
         <!--Dependency-->
-        <cloud-config-client.version>3.1</cloud-config-client.version>
+        <cloud-config-client.version>3.1.3</cloud-config-client.version>
         <!--Tests-->
         <cglib.version>3.3.0</cglib.version>
         <groovy-all.version>3.0.7</groovy-all.version>
