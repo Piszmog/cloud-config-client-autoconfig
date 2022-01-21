@@ -21,10 +21,6 @@ import org.springframework.core.annotation.Order;
 @ConditionalOnProperty(value = "spring.cloud.config.client.oauth2.client-id", matchIfMissing = true)
 @Import(ConfigServiceBootstrapConfiguration.class)
 public class LocalConfigTemplateBootstrapConfiguration {
-    // ============================================================
-    // Beans:
-    // ============================================================
-
     /**
      * Creates a local config template bean.
      *

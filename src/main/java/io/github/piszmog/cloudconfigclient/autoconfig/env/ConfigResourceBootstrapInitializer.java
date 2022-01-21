@@ -33,23 +33,11 @@ import java.util.stream.StreamSupport;
  */
 @Configuration
 public class ConfigResourceBootstrapInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext>, Ordered {
-    // ============================================================
-    // Class Constants:
-    // ============================================================
-
     private static final String PROPERTY_FILE = "cloud.config.client.file";
     private static final String PROPERTY_ENABLED = PROPERTY_FILE + ".enabled";
     private static final int MAX_SIZE = 1000;
 
-    // ============================================================
-    // Class Attributes:
-    // ============================================================
-
     private ConfigPropertySourceLocator configPropertySourceLocator;
-
-    // ============================================================
-    // Override Methods:
-    // ============================================================
 
     @Override
     public void initialize(final ConfigurableApplicationContext applicationContext) {
@@ -101,10 +89,6 @@ public class ConfigResourceBootstrapInitializer implements ApplicationContextIni
         //
         return LOWEST_PRECEDENCE;
     }
-
-    // ============================================================
-    // Public Methods:
-    // ============================================================
 
     @Autowired(required = false)
     public void setConfigPropertySourceLocator(final ConfigPropertySourceLocator configPropertySourceLocator) {

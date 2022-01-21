@@ -21,10 +21,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConditionalOnBean(ConfigTemplate.class)
 public class ConfigClientAutoConfiguration {
-    // ============================================================
-    // Beans:
-    // ============================================================
-
     /**
      * Create a decryption client.
      *

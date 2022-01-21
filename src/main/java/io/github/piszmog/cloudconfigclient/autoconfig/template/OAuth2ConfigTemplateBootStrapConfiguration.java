@@ -24,10 +24,6 @@ import org.springframework.core.annotation.Order;
 @ConditionalOnProperty(prefix = "spring.cloud.config.client.oauth2", name = {"client-id", "client-secret", "access-token-uri"})
 @Import({ConfigServiceBootstrapConfiguration.class})
 public class OAuth2ConfigTemplateBootStrapConfiguration {
-    // ============================================================
-    // Beans:
-    // ============================================================
-
     /**
      * Creates a config template using OAuth2 credentials to connect to the config server.
      *

@@ -8,16 +8,8 @@ import java.util.List;
  * Created by Piszmog on 7/21/2018
  */
 public class Resource {
-    // ============================================================
-    // Class Attributes:
-    // ============================================================
-
     private String directory;
     private List<String> files;
-
-    // ============================================================
-    // Public Methods:
-    // ============================================================
 
     public String getDirectory() {
         return directory;

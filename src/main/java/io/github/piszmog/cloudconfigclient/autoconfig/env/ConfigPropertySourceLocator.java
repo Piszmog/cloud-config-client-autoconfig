@@ -34,18 +34,10 @@ import java.util.stream.Collectors;
 public class ConfigPropertySourceLocator {
     private static final transient Log logger = LogFactory.getLog(ConfigPropertySourceLocator.class);
 
-    // ============================================================
-    // Class Constants:
-    // ============================================================
-
     private static final String PROPERTY_SOURCE_NAME = "jsonResource";
     private static final String THREAD_NAME = "ConfigLocator";
     private static final ObjectMapper YAML_MAPPER = new ObjectMapper(new YAMLFactory());
     private static final JavaPropsMapper PROPERTIES_MAPPER = new JavaPropsMapper();
-
-    // ============================================================
-    // Class Attributes:
-    // ============================================================
 
     private final FileConfigClient fileConfigClient;
     private final ExecutorService executorService = Executors.newFixedThreadPool(10,
@@ -53,10 +45,6 @@ public class ConfigPropertySourceLocator {
                     .daemon(true)
                     .priority(Thread.MAX_PRIORITY)
                     .build());
-
-    // ============================================================
-    // Constructors:
-    // ============================================================
 
     /**
      * Creates a new instance of the locator.
@@ -66,10 +54,6 @@ public class ConfigPropertySourceLocator {
     public ConfigPropertySourceLocator(final FileConfigClient fileConfigClient) {
         this.fileConfigClient = fileConfigClient;
     }
-
-    // ============================================================
-    // Public Methods:
-    // ============================================================
 
     /**
      * Locates the JSON resources to load as property sources.
@@ -100,10 +84,6 @@ public class ConfigPropertySourceLocator {
         }
         return composite;
     }
-
-    // ============================================================
-    // Private Methods:
-    // ============================================================
 
     private List<CompletableFuture<Void>> getJsonConfiguration(final CompositePropertySource composite,
                                                                final String directoryPath,
