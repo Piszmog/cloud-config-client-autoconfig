@@ -149,6 +149,7 @@
     <!-- Build -->
     <!--====================================-->
 
+
     <build>
         <plugins>
             <plugin>
@@ -190,25 +191,41 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.gmavenplus</groupId>
-                <artifactId>gmavenplus-plugin</artifactId>
-                <version>${gmavenplus-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compileTests</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.7.3</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.pitest</groupId>
+                        <artifactId>pitest-junit5-plugin</artifactId>
+                        <version>${pitest-junit5-plugin.version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>pit-report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>mutationCoverage</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
-                    <includes>
-                        <include>**/*Spec.java</include>
-                    </includes>
+                    <excludedClasses>
+                        <param>*.*Exception</param>
+                        <param>*model*</param>
+                    </excludedClasses>
+                    <coverageThreshold>${pitest-maven.coverageThreshold}</coverageThreshold>
+                    <mutationThreshold>${pitest-maven.mutationThreshold}</mutationThreshold>
+                    <outputFormats>
+                        <outputFormat>XML</outputFormat>
+                        <outputFormat>HTML</outputFormat>
+                    </outputFormats>
                 </configuration>
             </plugin>
         </plugins>
