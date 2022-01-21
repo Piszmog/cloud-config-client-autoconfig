@@ -1,5 +1,9 @@
 package io.github.piszmog.cloudconfigclient.autoconfig.env.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
 /**
@@ -7,23 +11,10 @@ import java.util.List;
  * <p>
  * Created by Piszmog on 7/21/2018
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Resource {
     private String directory;
     private List<String> files;
-
-    public String getDirectory() {
-        return directory;
-    }
-
-    public void setDirectory(final String directory) {
-        this.directory = directory;
-    }
-
-    public List<String> getFiles() {
-        return files;
-    }
-
-    public void setFiles(final List<String> files) {
-        this.files = files;
-    }
 }
