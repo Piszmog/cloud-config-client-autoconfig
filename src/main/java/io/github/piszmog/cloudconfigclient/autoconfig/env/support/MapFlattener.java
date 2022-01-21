@@ -15,10 +15,6 @@ import java.util.Map;
  * Created by Piszmog on 7/25/2018
  */
 public class MapFlattener {
-    // ============================================================
-    // Static Methods:
-    // ============================================================
-
     /**
      * Flattens the provided map.
      *
@@ -30,10 +26,6 @@ public class MapFlattener {
         flatten(null, result, map);
         return result;
     }
-
-    // ============================================================
-    // Private Methods:
-    // ============================================================
 
     private static void flatten(String prefix,
                                 Map<String, Object> result,
