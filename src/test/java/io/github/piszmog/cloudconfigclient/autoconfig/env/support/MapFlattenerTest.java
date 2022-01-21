@@ -9,6 +9,9 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Tests for {@link MapFlattener}.
+ */
 public class MapFlattenerTest {
     @Test
     public void testFlatten_singleMap() {

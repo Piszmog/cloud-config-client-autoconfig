@@ -8,7 +8,9 @@ import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
+/**
+ * Tests for {@link OAuth2ConfigTemplateBootStrapConfiguration}.
+ */
 public class OAuth2ConfigTemplateBootStrapConfigurationTest {
     private final ApplicationContextRunner contextRunner = new ApplicationContextRunner()
             .withConfiguration(AutoConfigurations.of(OAuth2ConfigTemplateBootStrapConfiguration.class));
