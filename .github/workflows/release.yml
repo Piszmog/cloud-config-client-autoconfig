@@ -16,6 +16,17 @@ jobs:
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
+      - name: Configure Maven to use GitHub Packages
+        run: |
+          echo "<settings>
+                <servers>
+                  <server>
+                    <id>github</id>
+                    <username>${{ github.actor }}</username>
+                    <password>${{ secrets.GITHUB_TOKEN }}</password>
+                  </server>
+                </servers>
+              </settings>" > $HOME/.m2/settings.xml
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
