@@ -42,6 +42,17 @@ jobs:
         distribution: temurin
         java-version: 17
         cache: maven
+    - name: Configure Maven to use GitHub Packages
+      run: |
+         echo "<settings>
+               <servers>
+                 <server>
+                   <id>github</id>
+                   <username>${{ github.actor }}</username>
+                   <password>${{ secrets.GITHUB_TOKEN }}</password>
+                 </server>
+               </servers>
+             </settings>" > $HOME/.m2/settings.xml
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
