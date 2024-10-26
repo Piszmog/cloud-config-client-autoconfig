@@ -37,7 +37,23 @@ Creates Spring Beans for `DecryptConfigClient`, `EncryptConfigClient`, `FileConf
 inject the beans where needed.
 
 ## Usage
-To use, add the following as a dependency,
+To use, add the GitHub repository as a repository
+
+```xml
+<repositories>
+    <repository>
+        <id>github</id>
+        <url>https://maven.pkg.github.com/Piszmog/cloud-config-client-autoconfig</url>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+    </repository>
+</repositories>
+```
+
+Note: you will need to authenticate with GitHib. See [docs]([url](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry#authenticating-to-github-packages)).
+
+Then add the dependency.
 
 ```xml
 <dependency>
