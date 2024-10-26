@@ -125,6 +125,15 @@
     <!--====================================-->
     <!-- Dependency Management -->
     <!--====================================-->
+    <repositories>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/Piszmog/cloud-config-client-java</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
 
     <dependencyManagement>
         <dependencies>
