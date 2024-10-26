@@ -1,7 +1,5 @@
 # Cloud Config Client AutoConfig
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.piszmog/cloud-config-client-autoconfig/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/io.github.piszmog/cloud-config-client-autoconfig)
-
 ## Description
 Spring Auto-configuration library for [Cloud Config Client](https://github.com/Piszmog/cloud-config-client).
 
