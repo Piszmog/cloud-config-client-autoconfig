@@ -38,7 +38,7 @@
         <maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
         <nexus-staging-maven-plugin.version>1.7.0</nexus-staging-maven-plugin.version>
         <!--Dependency Management-->
-        <spring-cloud-services-dependencies.version>4.1.5</spring-cloud-services-dependencies.version>
+        <spring-cloud-services-dependencies.version>4.1.6</spring-cloud-services-dependencies.version>
         <spring-boot-dependencies.version>3.3.5</spring-boot-dependencies.version>
         <!--Dependency-->
         <cloud-config-client.version>4.0.2</cloud-config-client.version>
