@@ -42,7 +42,7 @@
         <spring-boot-dependencies.version>3.3.5</spring-boot-dependencies.version>
         <!--Dependency-->
         <cloud-config-client.version>4.0.2</cloud-config-client.version>
-        <pitest-junit5-plugin.version>1.2.1</pitest-junit5-plugin.version>
+        <pitest-junit5-plugin.version>1.2.2</pitest-junit5-plugin.version>
         <!--Tests-->
         <cglib.version>3.3.0</cglib.version>
         <groovy-all.version>3.0.7</groovy-all.version>
