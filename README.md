@@ -1,3 +1,7 @@
+This project has been archived.
+
+I stopped using this library and cannot ensure it is working correctly. Additionally, every new version of Spring would sometimes break builds; it became too much to manage.
+
 # Cloud Config Client AutoConfig
 
 ## Description
